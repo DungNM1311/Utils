@@ -50,7 +50,7 @@
             <source src="horse.ogg" type="audio/ogg">
             <source src="My-Love-Westlife.mp3" type="audio/mpeg"> -->
 
-          <iframe
+          <!-- <iframe
             src="https://www.youtube.com/embed/yrAlRngYndg?autoplay=1"
             class="frame"
             allowfullscreen
@@ -58,7 +58,7 @@
             width="420"
             height="345"
             allow="autoplay"
-          ></iframe>
+          ></iframe> -->
     </div>
   </body>
   <script>
@@ -71,8 +71,8 @@
 
 
     // Link of background music - set 'null' if you dont want to play background music
-    var bgMusicURL = "My-Love-Westlife.mp3";
-    var bgMusicControls = true; // Show UI music control
+    var bgMusicURL ="My-Love-Westlife.mp3";
+    var bgMusicControls = false; // Show UI music control
 
 
     var settings = {
@@ -668,7 +668,7 @@
     // add background music
     if (bgMusicURL) {
       document.getElementById("music-container").innerHTML += `
-<audio src="${bgMusicURL}" ${
+<audio src="${bgMusicURL}" id="audioplayer" ${
         bgMusicControls ? "controls" : ""
       } autoplay loop>    
 <p>If you are reading this, it is because your browser does not support the audio element.</p>
@@ -679,6 +679,7 @@
 
     // setup events
     document.onpointerdown = function (e) {
+      document.getElementById('audioplayer').play();
       clearInterval(odrag.timer);
       e = e || window.event;
       var sX = e.clientX,
